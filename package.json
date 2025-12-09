@@ -9,13 +9,22 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "axios": "^1.13.2",
+    "lucide": "^0.556.0",
+    "lucide-react": "^0.556.0",
+    "mongoose": "^9.0.1",
     "next": "16.0.8",
+    "next-auth": "^4.24.13",
+    "nodemailer": "^7.0.11",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "react-toastify": "^11.0.5",
+    "toastify": "^2.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.4",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
