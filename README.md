@@ -95,22 +95,8 @@ cd helpdeskpro
 npm install
 ```
 
-###  Configure Environment Variables
 
-Create a `.env.local` file in the project root with the following variables:
 
-```env
-# MongoDB
-MONGODB_URI=mongodb+srv://brandon:brandon123@cluster0.4ipjknm.mongodb.net/helpdeskpro
-
-# NextAuth
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=P5Nejc/RA3Redgvp+b9DHesmkMD3P72UvusvyQaTr8Y
-
-# Email Configuration (Nodemailer)
-MAIL_USER=brandon13461@gmail.com
-MAIL_PASS=sejzeomohffsmnpz
-```
 
 ###  Run the Project
 
