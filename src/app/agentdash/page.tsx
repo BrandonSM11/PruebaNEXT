@@ -1,5 +1,3 @@
-// src/app/agent-dashboard/page.tsx (CON FILTROS IMPLEMENTADOS)
-
 "use client";
 
 import { useSession, signOut } from "next-auth/react";
@@ -19,7 +17,7 @@ export default function AgentDashboard() {
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [loading, setLoading] = useState(true);
   
-  // 🚨 1. ESTADO DEL FILTRO
+  //  ESTADO DEL FILTRO
   const [statusFilter, setStatusFilter] = useState<string>('open'); 
   
   const [showEditModal, setShowEditModal] = useState(false);
@@ -34,13 +32,13 @@ export default function AgentDashboard() {
     if (status === "unauthenticated") router.push("/");
   }, [status, router]);
 
-  // 🚨 2. Y 3. FUNCIÓN DE CARGA ESTABLE CON LÓGICA DE FILTRO
+  //   FUNCIÓN DE CARGA ESTABLE CON LÓGICA DE FILTRO
   const fetchTickets = useCallback(async (filter: string) => {
     setLoading(true);
     try {
       // Si el filtro no es 'all', lo enviamos al servicio de tickets.
       const filterParam = filter !== 'all' ? filter : undefined;
-      // 🚨 getTickets debe aceptar un parámetro de filtro (status)
+      //  getTickets debe aceptar un parámetro de filtro (status)
       const response = await getTickets(filterParam); 
       setTickets(response.data || []);
     } catch (err) {
@@ -52,10 +50,10 @@ export default function AgentDashboard() {
 
   useEffect(() => {
     if (session?.user?.id) {
-      // 🚨 3. Llama a fetchTickets cuando cambie el filtro o la sesión
+      //  Llama a fetchTickets cuando cambie el filtro o la sesión
       fetchTickets(statusFilter); 
     }
-  }, [session, fetchTickets, statusFilter]); // 🚨 statusFilter añadido a las dependencias
+  }, [session, fetchTickets, statusFilter]); //  statusFilter añadido a las dependencias
 
   function handleEditClick(ticket: Ticket) {
     setSelectedTicket(ticket);
@@ -129,7 +127,7 @@ export default function AgentDashboard() {
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Tickets</h2>
           
-          {/* 🚨 4. UI DEL FILTRO */}
+          {/*  UI DEL FILTRO */}
           <div className="flex justify-end mb-4 gap-4 items-center">
             <label className="text-gray-600 font-medium text-sm">Filtrar por Estado:</label>
             <select
