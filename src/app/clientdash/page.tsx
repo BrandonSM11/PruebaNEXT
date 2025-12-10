@@ -174,6 +174,9 @@ export default function ClientDashboard() {
           ) : (
             <div className="space-y-4 mt-4">
               {tickets.map((ticket) => {
+
+                //Lo que hace es garantizar que ticketOwnerId sea siempre un string, 
+                // sin importar en qué formato venga createdBy  
                 const ownerIdObject = ticket.createdBy as any;
                 const calculatedOwnerId = 
                     String(ownerIdObject?.id || 
@@ -182,20 +185,20 @@ export default function ClientDashboard() {
                            "");
 
                 return (
-                  <TicketCard
-                    key={ticket._id?.toString()}
-                    id={ticket._id?.toString() || ""}
-                    title={ticket.title}
-                    description={ticket.description}
-                    status={ticket.status}
-                    priority={ticket.priority}
-                    createdAt={
-                      ticket.createdAt instanceof Date
-                        ? ticket.createdAt.toISOString()
-                        : ticket.createdAt || ""
-                    }
-                    ticketOwnerId={calculatedOwnerId}
-                  />
+                    <TicketCard
+                      key={ticket._id?.toString()}
+                      id={ticket._id?.toString() || ""}
+                      title={ticket.title}
+                      description={ticket.description}
+                      status={ticket.status}
+                      priority={ticket.priority}
+                      createdAt={
+                        ticket.createdAt instanceof Date
+                          ? ticket.createdAt.toISOString()
+                          : ticket.createdAt || ""
+                      }
+                      ticketOwnerId={calculatedOwnerId}
+                    />
                 );
               })}
             </div>

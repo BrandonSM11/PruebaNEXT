@@ -21,7 +21,7 @@ const authOptions = {
         const user = await User.findOne({ email: credentials.email });
         if (!user) return null;
 
-        // ⚠️ CAMBIAR POR BCRYPT EN PRODUCCIÓN
+    
         if (user.password !== credentials.password) return null;
 
         // Verificar si está activo
